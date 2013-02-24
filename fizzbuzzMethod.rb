@@ -1,21 +1,16 @@
-
-def fizzbuzz (maxNum)
-	output = Array.new
-	(1..maxNum).each do |num|
-		if num % 15 == 0
-			output << "FizzBuzz"
-		elsif num % 5 == 0
-			output << "Buzz"
-		elsif num % 3 == 0
-			output << "Fizz"
-		else
-			output << num
+def fizzbuzz (begin_number, end_number)
+	(begin_number..end_number).each do |n|
+		if n % 15 == 0
+			puts "FizzBuzz"
+		elsif n % 3 == 0
+			puts "Fizz"
+		elsif n % 5 == 0
+			puts "Buzz"
+		else  
+			puts n
 		end
 	end
-	return output
 end
 
-puts fizzbuzz(30).instance_of?
-
-
+fizzbuzz(15, 15)
 
