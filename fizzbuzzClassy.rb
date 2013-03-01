@@ -18,7 +18,7 @@ class FizzBuzz
 	end
 	
 	def text
-		@fizz_buzz.to_s
+		@fizz_buzz.join(",")
 	end
 		
 	def html
