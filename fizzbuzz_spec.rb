@@ -3,7 +3,7 @@ describe Fizzy do
 	describe "to_text" do
 		it "Should return the correct fizzbuzz for 1-30" do
 			fb = Fizzy.new(30)
-			fb.to_text.should eq("1,2,Fizz,4,Buzz,Fizz,7,8,Fizz,Buzz,11,Fizz,13,14,FizzBuzz,16,17,Fizz,19,Buzz,Fizz,22,23,Fizz,Buzz,26,Fizz,28,29,FizzBuzz")
+			fb.to_s.should eq("1,2,Fizz,4,Buzz,Fizz,7,8,Fizz,Buzz,11,Fizz,13,14,FizzBuzz,16,17,Fizz,19,Buzz,Fizz,22,23,Fizz,Buzz,26,Fizz,28,29,FizzBuzz")
 		end
 	end
 	describe "to_html" do
@@ -38,22 +38,34 @@ END_OF_STRING
 		end
 	end
 	
+	describe "to_a" do
+		it "Should output an array" do
+			fb = Fizzy.new(15)
+			fb.to_a.should eq(["1","2","Fizz","4","Buzz","Fizz","7","8","Fizz","Buzz","11","Fizz","13","14","FizzBuzz"])
+		end
+	end
+	
 	describe "fizz_single" do
 		it "9 should return Fizz" do
-			Fizzy.fizz_single(9).should eq("Fizz")
+			fb_array = Fizzy.new(30).to_a
+			fb_array[8].should eq("Fizz")
 		end
 		
 		it "10 Should return Buzz" do
-			Fizzy.fizz_single(10).should eq("Buzz")
+			fb = Fizzy.new(10)
+			fb.to_a.last.should eq("Buzz")
 		end
 		
 		it "11 Should return 11" do
-			Fizzy.fizz_single(11).should eq("11")
+			fb = Fizzy.new(11)
+			fb.to_a.last.should eq("11")
 		end
 		
 		it "30 Should return FizzBuzz" do
-			Fizzy.fizz_single(30).should eq("FizzBuzz")
+			fb = Fizzy.new(30)
+			fb.to_a.last.should eq("FizzBuzz")
 		end
+		
 	end
 	
 end
